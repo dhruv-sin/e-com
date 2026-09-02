@@ -3,7 +3,8 @@ import { asyncHandler } from '../utils/asyncHandler.utils.js';
 import { ApiError } from '../utils/ApiError.utils.js';
 import { ApiResponse } from '../utils/ApiResponse.utils.js';
 import { uploadToCloudinary } from '../utils/cloudinary.utils.js';
-import fs from "fs"
+import fs from 'fs';
+import { json } from 'stream/consumers';
 
 const createProduct = asyncHandler(async (req, res) => {
   const { name, description, price, stock = 0, category } = req.body;
@@ -20,12 +21,12 @@ const createProduct = asyncHandler(async (req, res) => {
   const imageUrls = [];
   for (const file of req.files) {
     const response = await uploadToCloudinary(file.path);
-    if (!response||!response.url) {
-        for(const remaining of req.files){
-            if(fs.existsSync(remaining.path)){ 
-                 fs.unlinkSync(remaining.path)
-            }
+    if (!response || !response.url) {
+      for (const remaining of req.files) {
+        if (fs.existsSync(remaining.path)) {
+          fs.unlinkSync(remaining.path);
         }
+      }
       throw new ApiError(500, 'IMAGE UPLOAD FAILED');
     }
     imageUrls.push(response.url);
@@ -51,4 +52,16 @@ const createProduct = asyncHandler(async (req, res) => {
     .json(new ApiResponse(201, finalProduct, 'PRODUCT CREATED SUCCESSFULLY'));
 });
 
-export{createProduct}
+const getAllProduct = asyncHandler(async (req, res) => {
+  const { page = 1, limit = 10 } = req.query;
+  const allProducts = await Product.find({})
+    .populate('seller', 'username email')
+    .limit(limit * 1)
+    .skip((page - 1) * limit);
+
+  res
+    .status(200)
+    .json(new ApiResponse(200, { allProducts }, 'SUCCESSFULLY FETCHED'));
+});
+
+export { createProduct,getAllProduct };
