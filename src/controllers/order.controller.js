@@ -1,8 +1,8 @@
-import { Cart } from '../models/Cart.models';
-import { Order } from '../models/Order.models';
-import { ApiError } from '../utils/ApiError.utils';
-import { ApiResponse } from '../utils/ApiResponse.utils';
-import { asyncHandler } from '../utils/asyncHandler.utils';
+import { Cart } from '../models/Cart.models.js';
+import { Order } from '../models/Order.models.js';
+import { ApiError } from '../utils/ApiError.utils.js';
+import { ApiResponse } from '../utils/ApiResponse.utils.js';
+import { asyncHandler } from '../utils/asyncHandler.utils.js';
 
 const placeOrder = asyncHandler(async (req, res) => {
   const { shippingAddress } = req.body;
@@ -54,4 +54,4 @@ const getOrderHistory = asyncHandler(async (req, res) => {
     );
 });
 
-export { placeOrder };
+export { placeOrder,getOrderHistory };

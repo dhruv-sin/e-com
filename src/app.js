@@ -14,7 +14,15 @@ import userRouter from "./routes/user.routes.js"
 //http://localhost:8000/api/v1/user
 app.use("/api/v1/user",userRouter)
 
+
+// http://localhost:8000/api/v1/product
 import productRouter from "./routes/product.routes.js"
 app.use("/api/v1/product",productRouter)
+
+
+import orderRouter from "./routes/order.routes.js";
+
+// http://localhost:8000/api/v1/order
+app.use("/api/v1/order", orderRouter);
 
 export {app}
