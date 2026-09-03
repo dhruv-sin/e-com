@@ -40,7 +40,7 @@ A robust, production-grade MERN e-commerce backend MVP built with Node.js, Expre
 
 ## 📂 Project Structure
 
-\`\`\`text
+```text
 src/
 ├── controllers/    # Route logic (user, product, cart, order)
 ├── middlewares/    # Custom middlewares (auth, multer)
@@ -49,21 +49,27 @@ src/
 ├── utils/          # Reusable helpers (ApiError, ApiResponse, asyncHandler, cloudinary)
 ├── app.js          # Express app configuration
 └── server.js       # Database connection and server entry point
-\`\`\`
 
-## 🛠️ Environment Variables
+🛠️ Environment Variables
+To run this project, you will need to add the following environment variables to your .env file:
 
-To run this project, you will need to add the following environment variables to your `.env` file:
+PORT=8000
 
-\`PORT=8000\`
-\`MONGODB_URI=your_mongodb_connection_string\`
-\`ACCESS_TOKEN_SECRET=your_super_secret_access_key\`
-\`ACCESS_TOKEN_EXPIRY=1d\`
-\`REFRESH_TOKEN_SECRET=your_super_secret_refresh_key\`
-\`REFRESH_TOKEN_EXPIRY=10d\`
-\`CLOUDINARY_CLOUD_NAME=your_cloudinary_name\`
-\`CLOUDINARY_API_KEY=your_cloudinary_api_key\`
-\`CLOUDINARY_API_SECRET=your_cloudinary_api_secret\`
+MONGODB_URI=your_mongodb_connection_string
+
+ACCESS_TOKEN_SECRET=your_super_secret_access_key
+
+ACCESS_TOKEN_EXPIRY=1d
+
+REFRESH_TOKEN_SECRET=your_super_secret_refresh_key
+
+REFRESH_TOKEN_EXPIRY=10d
+
+CLOUDINARY_CLOUD_NAME=your_cloudinary_name
+
+CLOUDINARY_API_KEY=your_cloudinary_api_key
+
+CLOUDINARY_API_SECRET=your_cloudinary_api_secret
 
 ## 💻 Getting Started
 
