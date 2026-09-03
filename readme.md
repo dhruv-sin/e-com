@@ -50,49 +50,45 @@ src/
 ├── app.js          # Express app configuration
 └── server.js       # Database connection and server entry point
 
-🛠️ Environment Variables
-To run this project, you will need to add the following environment variables to your .env file:
+```
 
-PORT=8000
+## 🛠️ Environment Variables
 
-MONGODB_URI=your_mongodb_connection_string
+To run this project, you will need to add the following environment variables to your `.env` file:
 
-ACCESS_TOKEN_SECRET=your_super_secret_access_key
-
-ACCESS_TOKEN_EXPIRY=1d
-
-REFRESH_TOKEN_SECRET=your_super_secret_refresh_key
-
-REFRESH_TOKEN_EXPIRY=10d
-
-CLOUDINARY_CLOUD_NAME=your_cloudinary_name
-
-CLOUDINARY_API_KEY=your_cloudinary_api_key
-
-CLOUDINARY_API_SECRET=your_cloudinary_api_secret
+* `PORT=8000`
+* `MONGODB_URI=your_mongodb_connection_string`
+* `ACCESS_TOKEN_SECRET=your_super_secret_access_key`
+* `ACCESS_TOKEN_EXPIRY=1d`
+* `REFRESH_TOKEN_SECRET=your_super_secret_refresh_key`
+* `REFRESH_TOKEN_EXPIRY=10d`
+* `CLOUDINARY_CLOUD_NAME=your_cloudinary_name`
+* `CLOUDINARY_API_KEY=your_cloudinary_api_key`
+* `CLOUDINARY_API_SECRET=your_cloudinary_api_secret`
 
 ## 💻 Getting Started
 
 1. **Clone the repository:**
-   \`git clone https://github.com/yourusername/your-repo-name.git\`
+`git clone https://github.com/yourusername/your-repo-name.git`
 2. **Install dependencies:**
-   \`npm install\`
+`npm install`
 3. **Start the development server:**
-   \`npm run dev\`
+`npm run dev`
 
 ## 🛣️ API Endpoints (Quick Reference)
 
 | Resource | Method | Endpoint | Description | Auth Required |
-| :--- | :--- | :--- | :--- | :--- |
+| --- | --- | --- | --- | --- |
 | **Auth** | POST | `/api/v1/user/register` | Register new user | No |
 | **Auth** | POST | `/api/v1/user/login` | Login user | No |
 | **Products** | GET | `/api/v1/product/all-Products` | Get all products (paginated) | No |
 | **Products** | POST | `/api/v1/product/add-New-Product` | Create product (w/ images) | Yes |
 | **Cart** | GET | `/api/v1/cart/get` | View user cart | Yes |
-| **Cart** | POST | `/api/v1/cart/add/:productID/:quantity`| Add/update item in cart | Yes |
+| **Cart** | POST | `/api/v1/cart/add/:productID/:quantity` | Add/update item in cart | Yes |
 | **Cart** | DELETE | `/api/v1/cart/remove/:productID` | Remove item from cart | Yes |
 | **Orders** | POST | `/api/v1/order/place` | Checkout cart | Yes |
 | **Orders** | GET | `/api/v1/order/history` | Get user order history | Yes |
 
----
+
+
 *Built with ❤️ utilizing clean code practices and modern MERN architecture.*
