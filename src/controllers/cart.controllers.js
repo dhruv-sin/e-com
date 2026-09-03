@@ -46,6 +46,7 @@ const getUserCart=asyncHandler(async(req,res)=>{
     const cart=await Cart.findOne({owner:req.user?._id}).populate('items.product','name price image')
     res.status(200).json(new ApiResponse(200,cart,"CART SUCCESSFULLY FETCHED"))
 })
+
 const removeItem=asyncHandler(async(req,res)=>{
   const {productID}=req.params;
   const cart=await Cart.findOne({owner:req.user._id})
@@ -59,4 +60,4 @@ const removeItem=asyncHandler(async(req,res)=>{
 
 })
 
-export{addToCart,getUserCart}
+export{addToCart,getUserCart,removeItem}
